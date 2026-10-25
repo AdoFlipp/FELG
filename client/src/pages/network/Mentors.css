@@ -1,0 +1,282 @@
+/* ==================================
+   FELG Mentors Page
+================================== */
+
+.network-page {
+  min-height: 100vh;
+  background: #f5f7fb;
+  color: #172033;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Navigation */
+
+.dashboard-nav {
+  min-height: 72px;
+  padding: 0 7%;
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  background: #ffffff;
+  border-bottom: 1px solid #e5eaf2;
+}
+
+.dashboard-nav a {
+  color: #526078;
+  text-decoration: none;
+  font-size: 15px;
+  font-weight: 600;
+  transition: color 0.2s ease;
+}
+
+.dashboard-nav a:hover {
+  color: #3157d5;
+}
+
+.dashboard-nav .logo {
+  margin-right: auto;
+  color: #3157d5;
+  font-size: 26px;
+  font-weight: 800;
+  letter-spacing: -1px;
+}
+
+/* Main content */
+
+.network-container {
+  width: min(1120px, 90%);
+  margin: 0 auto;
+  padding: 52px 0 80px;
+}
+
+/* Page heading */
+
+.network-header {
+  max-width: 720px;
+  margin-bottom: 34px;
+}
+
+.small-label {
+  margin-bottom: 12px;
+  color: #3157d5;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 2px;
+}
+
+.network-header h1 {
+  margin: 0 0 16px;
+  color: #172033;
+  font-size: clamp(30px, 4vw, 44px);
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: -1.5px;
+}
+
+.network-header > p:last-child {
+  max-width: 620px;
+  margin: 0;
+  color: #65718a;
+  font-size: 16px;
+  line-height: 1.8;
+}
+
+/* Search form */
+
+.education-search {
+  display: flex;
+  gap: 12px;
+  max-width: 680px;
+  margin-bottom: 36px;
+}
+
+.education-search input {
+  flex: 1;
+  min-width: 0;
+  padding: 15px 18px;
+  border: 1px solid #dce3ef;
+  border-radius: 10px;
+  outline: none;
+  background: #ffffff;
+  color: #172033;
+  font-size: 15px;
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.education-search input:focus {
+  border-color: #3157d5;
+  box-shadow: 0 0 0 3px rgba(49, 87, 213, 0.12);
+}
+
+.education-search button,
+.mentor-card > button {
+  padding: 13px 23px;
+  border: none;
+  border-radius: 9px;
+  background: #3157d5;
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease;
+}
+
+.education-search button:hover,
+.mentor-card > button:hover {
+  background: #2445b4;
+  transform: translateY(-1px);
+}
+
+/* Mentor grid */
+
+.mentor-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+}
+
+/* Individual mentor card */
+
+.mentor-card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  min-width: 0;
+  padding: 28px 24px;
+  border: 1px solid #e5eaf2;
+  border-radius: 16px;
+  background: #ffffff;
+  box-shadow: 0 5px 20px rgba(26, 43, 78, 0.04);
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.mentor-card:hover {
+  transform: translateY(-4px);
+  border-color: #cbd6f8;
+  box-shadow: 0 12px 30px rgba(26, 43, 78, 0.09);
+}
+
+/* Avatar */
+
+.post-avatar.large {
+  width: 72px;
+  height: 72px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+  border: 3px solid #e5eaff;
+  border-radius: 50%;
+  background: #e9edff;
+  color: #3157d5;
+  font-size: 27px;
+  font-weight: 800;
+}
+
+/* Mentor information */
+
+.mentor-card h2 {
+  margin: 0 0 8px;
+  color: #172033;
+  font-size: 20px;
+  line-height: 1.4;
+  overflow-wrap: anywhere;
+}
+
+.mentor-card p {
+  color: #65718a;
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+.mentor-card .institution-name {
+  margin: 0 0 4px;
+  color: #3157d5;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.mentor-card .institution-name + p {
+  margin: 0 0 14px;
+  color: #8490a5;
+  font-size: 13px;
+}
+
+.mentor-card .mentor-bio {
+  flex: 1;
+  margin: 0 0 22px;
+  overflow-wrap: anywhere;
+}
+
+/* Connect button */
+
+.mentor-card > button {
+  width: 100%;
+  margin-top: auto;
+}
+
+/* Loading text */
+
+.network-container > p {
+  color: #65718a;
+  font-size: 15px;
+}
+
+/* Tablet */
+
+@media (max-width: 900px) {
+  .mentor-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .network-container {
+    padding-top: 40px;
+  }
+}
+
+/* Mobile */
+
+@media (max-width: 600px) {
+  .dashboard-nav {
+    min-height: 64px;
+    padding: 0 5%;
+    gap: 20px;
+  }
+
+  .dashboard-nav .logo {
+    font-size: 23px;
+  }
+
+  .network-container {
+    width: 90%;
+    padding: 32px 0 55px;
+  }
+
+  .network-header h1 {
+    letter-spacing: -0.8px;
+  }
+
+  .education-search {
+    flex-direction: column;
+  }
+
+  .education-search button {
+    width: 100%;
+  }
+
+  .mentor-grid {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  .mentor-card {
+    padding: 24px 20px;
+  }
+}

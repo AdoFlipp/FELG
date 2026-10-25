@@ -1,0 +1,1675 @@
+import React from "react";
+import ReactDOM from "react-dom/client";
+import {
+  BrowserRouter,
+  Routes,
+  Route,
+} from "react-router-dom";
+
+import App from "./App";
+import Login from "./pages/auth/Login";
+import Register from "./pages/auth/Register";
+import Dashboard from "./pages/dashboard/Dashboard";
+import Profile from "./pages/profile/Profile";
+import Jobs from "./pages/jobs/Jobs";
+import JobDetails from "./pages/jobs/JobDetails";
+
+import { AuthProvider } from "./context/AuthContext";
+
+
+
+function Placeholder({ title }) {
+  return (
+    <div style={{ padding: "50px" }}>
+      <h1>{title}</h1>
+      <p>This FELG section is under development.</p>
+    </div>
+  );
+}
+
+ReactDOM.createRoot(
+  document.getElementById("root")
+).render(
+  <React.StrictMode>
+    <BrowserRouter>
+
+      <AuthProvider>
+
+        <Routes>
+
+          <Route path="/" element={<App />} />
+
+          <Route
+            path="/jobs"
+            element={<Jobs />}
+          />
+
+          <Route
+            path="/jobs/:id"
+            element={<JobDetails />}
+          />
+
+          <Route
+            path="/education"
+            element={<Placeholder title="Education" />}
+          />
+
+          <Route
+            path="/startups"
+            element={<Placeholder title="Startups" />}
+          />
+
+          <Route
+            path="/network"
+            element={<Placeholder title="Professional Network" />}
+          />
+
+          <Route
+            path="/login"
+            element={<Login />}
+          />
+
+          <Route
+            path="/register"
+            element={<Register />}
+          />
+
+          <Route
+            path="/dashboard"
+            element={<Dashboard />}
+          />
+
+          <Route
+            path="/profile"
+            element={<Profile />}
+          />
+
+        </Routes>
+
+      </AuthProvider>
+
+    </BrowserRouter>
+  </React.StrictMode>
+);
+
+import { StrictMode } from 'react'
+import { createRoot } from 'react-dom/client'
+import { BrowserRouter } from 'react-router-dom'
+import App from './App.jsx'
+
+createRoot(document.getElementById('root')).render(
+  <StrictMode>
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
+  </StrictMode>,
+)
+
+
+
+
+import { Link } from "react-router-dom";
+import "./App.css";
+
+function App() {
+  return (
+    <div className="app">
+
+      <nav className="navbar">
+        <div className="logo">
+          FELG
+        </div>
+
+        <div className="nav-links">
+          <Link to="/">Home</Link>
+          <Link to="/jobs">Jobs</Link>
+          <Link to="/education">Education</Link>
+          <Link to="/startups">Startups</Link>
+          <Link to="/network">Network</Link>
+        </div>
+
+        <div className="nav-actions">
+          <Link to="/login" className="login-btn">
+            Login
+          </Link>
+
+          <Link to="/register" className="register-btn">
+            Join FELG
+          </Link>
+        </div>
+      </nav>
+
+      <main>
+
+        <section className="hero">
+
+          <div className="hero-content">
+
+            <span className="hero-label">
+              GLOBAL OPPORTUNITY PLATFORM
+            </span>
+
+            <h1>
+              Your future starts
+              <span> here.</span>
+            </h1>
+
+            <p>
+              Discover universities, build your career,
+              find jobs, connect with startups, and
+              grow your professional network.
+            </p>
+
+            <div className="hero-buttons">
+              <Link to="/register" className="primary-btn">
+                Create Your Profile
+              </Link>
+
+              <Link to="/jobs" className="secondary-btn">
+                Explore Opportunities
+              </Link>
+            </div>
+
+          </div>
+
+        </section>
+
+        <section className="features">
+
+          <div className="feature-card">
+            <div className="feature-icon">🎓</div>
+            <h2>Education</h2>
+            <p>
+              Discover universities, colleges,
+              programs and scholarships around
+              the world.
+            </p>
+          </div>
+
+          <div className="feature-card">
+            <div className="feature-icon">💼</div>
+            <h2>Careers</h2>
+            <p>
+              Find jobs, build your professional
+              profile and manage your applications.
+            </p>
+          </div>
+
+          <div className="feature-card">
+            <div className="feature-icon">🚀</div>
+            <h2>Startups</h2>
+            <p>
+              Discover startups, opportunities,
+              founders and innovative companies.
+            </p>
+          </div>
+
+          <div className="feature-card">
+            <div className="feature-icon">🤝</div>
+            <h2>Network</h2>
+            <p>
+              Connect with professionals, mentors,
+              founders and students.
+            </p>
+          </div>
+
+        </section>
+
+      </main>
+
+      <footer>
+        <p>
+          © 2026 FELG — Future Employment & Launch Gateway
+        </p>
+      </footer>
+
+    </div>
+  );
+}
+
+export default App;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+import { StrictMode } from 'react'
+import { createRoot } from 'react-dom/client'
+import { BrowserRouter } from 'react-router-dom'
+import { Routes } from 'react-router-dom'
+import { Route } from 'react-router-dom'
+import App from './App.jsx'
+
+import EmployerDashboard
+  from "./pages/employer/EmployerDashboard";
+
+import CreateOrganization
+  from "./pages/employer/CreateOrganization";
+
+import CreateJob
+  from "./pages/employer/CreateJob";
+
+import Programs
+  from "./pages/education/Programs";
+
+import ProgramDetails
+  from "./pages/education/ProgramDetails";
+
+import MyApplications
+  from "./pages/education/MyApplications";
+
+
+
+createRoot(document.getElementById('root')).render(
+  <StrictMode>
+    <BrowserRouter>
+    <Route
+  path="/employer"
+  element={<EmployerDashboard />}
+/>
+
+<Route
+  path="/employer/organization"
+  element={<CreateOrganization />}
+/>
+
+<Route
+  path="/employer/jobs/new"
+  element={<CreateJob />}
+/>
+
+<Route
+  path="/education"
+  element={<Programs />}
+/>
+
+<Route
+  path="/education/programs/:id"
+  element={<ProgramDetails />}
+/>
+
+<Route
+  path="/education/applications"
+  element={<MyApplications />}
+/>
+      <App />
+    </BrowserRouter>
+  </StrictMode>,
+)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+import { Link, Routes, Route } from "react-router-dom";
+import Login from "./pages/Login.jsx";
+import Register from "./pages/Register.jsx";
+import Jobs from "./pages/Jobs.jsx";
+import Education from "./pages/Education.jsx";
+import Startups from "./pages/Startups.jsx";
+
+function Home() {
+  return (
+    <div style={styles.page}>
+      <header style={styles.header}>
+        <Link to="/" style={styles.logo}>FELG</Link>
+
+        <nav style={styles.nav}>
+          <a href="#jobs">Jobs</a>
+          <a href="#education">Education</a>
+          <a href="#startups">Startups</a>
+          <a href="#about">About</a>
+        </nav>
+
+        <div style={styles.actions}>
+          <Link to="/login" style={styles.login}>Log in</Link>
+          <Link to="/register" style={styles.button}>Get started</Link>
+        </div>
+      </header>
+
+      <main>
+        <section style={styles.hero}>
+          <p style={styles.eyebrow}>YOUR FUTURE STARTS HERE</p>
+          <h1 style={styles.title}>
+            Connect your ambition<br />
+            to <span style={styles.accent}>opportunity.</span>
+          </h1>
+          <p style={styles.description}>
+            Discover career opportunities, explore education programs,
+            and connect with the startup ecosystem — all in one place.
+          </p>
+
+          <div style={styles.heroActions}>
+            <Link to="/register" style={styles.button}>
+              Join FELG →
+            </Link>
+            <a href="#explore" style={styles.secondaryButton}>
+              Explore opportunities
+            </a>
+          </div>
+
+          <div style={styles.features} id="explore">
+            <div style={styles.feature} id="jobs">
+              <div style={styles.icon}>💼</div>
+              <h2>Find opportunities</h2>
+              <p>Explore jobs and build your professional future.</p>
+              <Link to="/jobs">Explore jobs →</Link>
+            </div>
+
+            <div style={styles.feature} id="education">
+              <div style={styles.icon}>🎓</div>
+              <h2>Continue learning</h2>
+              <p>Discover programs and educational opportunities.</p>
+              <Link to="/education">Explore education →</Link>
+            </div>
+
+            <div style={styles.feature} id="startups">
+              <div style={styles.icon}>🚀</div>
+              <h2>Build something new</h2>
+              <p>Connect with startups, ideas, and organizations.</p>
+              <Link to="/startups">Explore startups →</Link>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <footer style={styles.footer} id="about">
+        <strong>FELG</strong>
+        <span>Connecting people with possibilities.</span>
+        <span>© {new Date().getFullYear()} FELG</span>
+      </footer>
+    </div>
+  );
+}
+
+const styles = {
+  page: {
+    minHeight: "100vh",
+    background: "#f7f9fc",
+    color: "#14213d",
+    fontFamily: "Arial, sans-serif",
+  },
+  header: {
+    display: "flex",
+    flexWrap: "wrap",
+    alignItems: "center",
+    justifyContent: "space-between",
+    gap: "20px",
+    padding: "20px 6%",
+    background: "#ffffff",
+    borderBottom: "1px solid #e5eaf2",
+  },
+  logo: {
+    fontSize: "28px",
+    fontWeight: "800",
+    color: "#2457d6",
+    textDecoration: "none",
+    letterSpacing: "2px",
+  },
+  nav: {
+    display: "flex",
+    flexWrap: "wrap",
+    gap: "22px",
+  },
+  actions: {
+    display: "flex",
+    alignItems: "center",
+    gap: "16px",
+  },
+  login: {
+    color: "#14213d",
+    textDecoration: "none",
+  },
+  button: {
+    display: "inline-block",
+    padding: "12px 20px",
+    borderRadius: "8px",
+    background: "#2457d6",
+    color: "#ffffff",
+    textDecoration: "none",
+    fontWeight: "700",
+  },
+  secondaryButton: {
+    display: "inline-block",
+    padding: "12px 20px",
+    borderRadius: "8px",
+    border: "1px solid #cbd5e1",
+    color: "#14213d",
+    textDecoration: "none",
+    fontWeight: "700",
+  },
+  hero: {
+    maxWidth: "1200px",
+    margin: "0 auto",
+    padding: "70px 6% 60px",
+  },
+  eyebrow: {
+    color: "#2457d6",
+    fontWeight: "700",
+    letterSpacing: "2px",
+  },
+  title: {
+    fontSize: "clamp(38px, 6vw, 68px)",
+    lineHeight: "1.1",
+    letterSpacing: "-2px",
+    margin: "20px 0",
+  },
+  accent: {
+    color: "#2457d6",
+  },
+  description: {
+    maxWidth: "620px",
+    fontSize: "18px",
+    lineHeight: "1.8",
+    color: "#5b6578",
+  },
+  heroActions: {
+    display: "flex",
+    flexWrap: "wrap",
+    gap: "14px",
+    marginTop: "28px",
+  },
+  features: {
+    display: "grid",
+    gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))",
+    gap: "20px",
+    marginTop: "65px",
+  },
+  feature: {
+    padding: "28px",
+    background: "#ffffff",
+    border: "1px solid #e5eaf2",
+    borderRadius: "16px",
+    boxShadow: "0 8px 24px rgba(20, 33, 61, 0.04)",
+  },
+  icon: {
+    fontSize: "32px",
+  },
+  footer: {
+    display: "flex",
+    flexWrap: "wrap",
+    justifyContent: "space-between",
+    gap: "16px",
+    padding: "25px 6%",
+    borderTop: "1px solid #e5eaf2",
+    color: "#5b6578",
+  },
+};
+
+
+function NotFound() {
+  return (
+    <main style={{ padding: "40px", fontFamily: "Arial, sans-serif" }}>
+      <h1>Page not found</h1>
+      <p>Sorry, this FELG page does not exist.</p>
+      <Link to="/">Return to Home</Link>
+    </main>
+  );
+}
+
+function App() {
+  return (
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="/login" element={<Login />} />
+      <Route path="/register" element={<Register />} />
+      <Route path="/jobs" element={<Jobs />} />
+      <Route path="/education" element={<Education />} />
+      <Route path="/startups" element={<Startups />} />
+      <Route path="*" element={<NotFound />} />
+    </Routes>
+  );
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+import { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { useAuth } from "../context/AuthContext";
+
+function Login() {
+  const navigate = useNavigate();
+  const { login } = useAuth();
+
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false);
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+
+    setError("");
+    setLoading(true);
+
+    try {
+      await login({
+        email,
+        password,
+      });
+
+      navigate("/dashboard");
+    } catch (error) {
+      setError(error.message);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  return (
+    <div className="auth-page">
+
+      <div className="auth-card">
+
+        <div className="auth-header">
+
+          <h1>Welcome back</h1>
+
+          <p>
+            Log in to continue your FELG journey.
+          </p>
+
+        </div>
+
+        {error && (
+          <div className="error-message">
+            {error}
+          </div>
+        )}
+
+        <form onSubmit={handleSubmit}>
+
+          <div className="form-group">
+
+            <label>Email</label>
+
+            <input
+              type="email"
+              value={email}
+              onChange={(event) =>
+                setEmail(event.target.value)
+              }
+              required
+            />
+
+          </div>
+
+          <div className="form-group">
+
+            <label>Password</label>
+
+            <input
+              type="password"
+              value={password}
+              onChange={(event) =>
+                setPassword(event.target.value)
+              }
+              required
+            />
+
+          </div>
+
+          <button
+            type="submit"
+            className="auth-button"
+            disabled={loading}
+          >
+            {loading
+              ? "Signing in..."
+              : "Log in"}
+          </button>
+
+        </form>
+
+        <p className="auth-footer">
+
+          Don't have an account?
+
+          {" "}
+
+          <Link to="/register">
+            Create one
+          </Link>
+
+        </p>
+
+      </div>
+
+    </div>
+  );
+}
+
+export default Login;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+import { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { useAuth } from "../../context/AuthContext";
+
+function Register() {
+  const navigate = useNavigate();
+  const { register } = useAuth();
+
+  const [form, setForm] = useState({
+    firstName: "",
+    lastName: "",
+    email: "",
+    password: "",
+    role: "graduate",
+    country: "",
+    city: "",
+  });
+
+  const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false);
+
+  const handleChange = (event) => {
+    setForm({
+      ...form,
+      [event.target.name]: event.target.value,
+    });
+  };
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+
+    setError("");
+    setLoading(true);
+
+    try {
+      await register(form);
+
+      navigate("/dashboard");
+    } catch (error) {
+      setError(error.message);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  return (
+    <div className="auth-page">
+
+      <div className="auth-card">
+
+        <div className="auth-header">
+          <h1>Join FELG</h1>
+
+          <p>
+            Create your account and start building
+            your future.
+          </p>
+        </div>
+
+        {error && (
+          <div className="error-message">
+            {error}
+          </div>
+        )}
+
+        <form onSubmit={handleSubmit}>
+
+          <div className="form-row">
+
+            <div className="form-group">
+              <label>First name</label>
+
+              <input
+                type="text"
+                name="firstName"
+                value={form.firstName}
+                onChange={handleChange}
+                required
+              />
+            </div>
+
+            <div className="form-group">
+              <label>Last name</label>
+
+              <input
+                type="text"
+                name="lastName"
+                value={form.lastName}
+                onChange={handleChange}
+                required
+              />
+            </div>
+
+          </div>
+
+          <div className="form-group">
+
+            <label>Email</label>
+
+            <input
+              type="email"
+              name="email"
+              value={form.email}
+              onChange={handleChange}
+              required
+            />
+
+          </div>
+
+          <div className="form-group">
+
+            <label>Password</label>
+
+            <input
+              type="password"
+              name="password"
+              value={form.password}
+              onChange={handleChange}
+              minLength="8"
+              required
+            />
+
+          </div>
+
+          <div className="form-group">
+
+            <label>FELG account type</label>
+
+            <select
+              name="role"
+              value={form.role}
+              onChange={handleChange}
+            >
+
+              <option value="student">
+                Student
+              </option>
+
+              <option value="graduate">
+                Graduate
+              </option>
+
+              <option value="employer">
+                Employer
+              </option>
+
+              <option value="university">
+                University
+              </option>
+
+              <option value="college">
+                College
+              </option>
+
+              <option value="startup">
+                Startup
+              </option>
+
+              <option value="mentor">
+                Mentor
+              </option>
+
+            </select>
+
+          </div>
+
+          <div className="form-row">
+
+            <div className="form-group">
+
+              <label>Country</label>
+
+              <input
+                type="text"
+                name="country"
+                value={form.country}
+                onChange={handleChange}
+              />
+
+            </div>
+
+            <div className="form-group">
+
+              <label>City</label>
+
+              <input
+                type="text"
+                name="city"
+                value={form.city}
+                onChange={handleChange}
+              />
+
+            </div>
+
+          </div>
+
+          <button
+            type="submit"
+            className="auth-button"
+            disabled={loading}
+          >
+            {loading
+              ? "Creating account..."
+              : "Create FELG account"}
+          </button>
+
+        </form>
+
+        <p className="auth-footer">
+
+          Already have an account?
+
+          {" "}
+
+          <Link to="/login">
+            Log in
+          </Link>
+
+        </p>
+
+      </div>
+
+    </div>
+  );
+}
+
+export default Register;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+const pool = require("../config/database");
+
+const globalSearch = async (req, res) => {
+  try {
+    const {
+      q = "",
+      country = "",
+      type = "all",
+    } = req.query;
+
+    const search = q.trim();
+
+    if (!search && !country) {
+      return res.json({
+        success: true,
+        results: {
+          people: [],
+          jobs: [],
+          programs: [],
+          organizations: [],
+          startups: [],
+          mentors: [],
+          opportunities: [],
+        },
+      });
+    }
+
+    const pattern = `%${search}%`;
+
+    const results = {
+      people: [],
+      jobs: [],
+      programs: [],
+      organizations: [],
+      startups: [],
+      mentors: [],
+      opportunities: [],
+    };
+
+
+    // ==========================================
+    // PEOPLE
+    // ==========================================
+
+    if (type === "all" || type === "people") {
+      const values = [pattern];
+
+      let countryCondition = "";
+
+      if (country) {
+        values.push(country);
+        countryCondition =
+          `AND u.country = $${values.length}`;
+      }
+
+      const result = await pool.query(
+        `
+        SELECT
+          u.id,
+          u.first_name,
+          u.last_name,
+          u.role,
+          u.country,
+          u.city,
+
+          p.headline,
+          p.bio,
+          p.profile_photo_url
+
+        FROM users u
+
+        LEFT JOIN profiles p
+          ON p.user_id = u.id
+
+        WHERE u.is_active = true
+
+        AND (
+          u.first_name ILIKE $1
+          OR u.last_name ILIKE $1
+          OR p.headline ILIKE $1
+          OR p.bio ILIKE $1
+        )
+
+        ${countryCondition}
+
+        ORDER BY u.created_at DESC
+
+        LIMIT 20
+        `,
+        values
+      );
+
+      results.people = result.rows;
+    }
+
+
+    // ==========================================
+    // JOBS
+    // ==========================================
+
+    if (type === "all" || type === "jobs") {
+      const values = [pattern];
+
+      let countryCondition = "";
+
+      if (country) {
+        values.push(country);
+
+        countryCondition =
+          `AND j.country = $${values.length}`;
+      }
+
+      const result = await pool.query(
+        `
+        SELECT
+          j.id,
+          j.title,
+          j.description,
+          j.country,
+          j.city,
+          j.work_type,
+
+          o.name AS organization_name
+
+        FROM jobs j
+
+        LEFT JOIN organizations o
+          ON o.id = j.organization_id
+
+        WHERE j.is_active = true
+
+        AND (
+          j.title ILIKE $1
+          OR j.description ILIKE $1
+          OR o.name ILIKE $1
+        )
+
+        ${countryCondition}
+
+        ORDER BY j.created_at DESC
+
+        LIMIT 20
+        `,
+        values
+      );
+
+      results.jobs = result.rows;
+    }
+
+
+    // ==========================================
+    // PROGRAMS
+    // ==========================================
+
+    if (type === "all" || type === "programs") {
+      const values = [pattern];
+
+      let countryCondition = "";
+
+      if (country) {
+        values.push(country);
+
+        countryCondition =
+          `AND o.country = $${values.length}`;
+      }
+
+      const result = await pool.query(
+        `
+        SELECT
+          p.id,
+          p.name,
+          p.description,
+          p.degree_level,
+          p.duration,
+          p.application_deadline,
+
+          o.name AS organization_name,
+          o.country
+
+        FROM programs p
+
+        JOIN organizations o
+          ON o.id = p.organization_id
+
+        WHERE
+          (
+            p.name ILIKE $1
+            OR p.description ILIKE $1
+            OR p.degree_level ILIKE $1
+            OR o.name ILIKE $1
+          )
+
+        ${countryCondition}
+
+        ORDER BY p.created_at DESC
+
+        LIMIT 20
+        `,
+        values
+      );
+
+      results.programs = result.rows;
+    }
+
+
+    // ==========================================
+    // ORGANIZATIONS
+    // ==========================================
+
+    if (
+      type === "all" ||
+      type === "organizations"
+    ) {
+      const values = [pattern];
+
+      let countryCondition = "";
+
+      if (country) {
+        values.push(country);
+
+        countryCondition =
+          `AND o.country = $${values.length}`;
+      }
+
+      const result = await pool.query(
+        `
+        SELECT
+          o.id,
+          o.name,
+          o.type,
+          o.description,
+          o.country,
+          o.city,
+          o.website,
+          o.is_verified
+
+        FROM organizations o
+
+        WHERE o.is_active = true
+
+        AND (
+          o.name ILIKE $1
+          OR o.description ILIKE $1
+        )
+
+        ${countryCondition}
+
+        ORDER BY o.created_at DESC
+
+        LIMIT 20
+        `,
+        values
+      );
+
+      results.organizations =
+        result.rows;
+    }
+
+
+    // ==========================================
+    // STARTUPS
+    // ==========================================
+
+    if (
+      type === "all" ||
+      type === "startups"
+    ) {
+      const values = [pattern];
+
+      let countryCondition = "";
+
+      if (country) {
+        values.push(country);
+
+        countryCondition =
+          `AND s.country = $${values.length}`;
+      }
+
+      const result = await pool.query(
+        `
+        SELECT
+          s.id,
+          s.name,
+          s.description,
+          s.industry,
+          s.stage,
+          s.country,
+          s.city,
+          s.website,
+          s.logo_url
+
+        FROM startups s
+
+        WHERE (
+          s.name ILIKE $1
+          OR s.description ILIKE $1
+          OR s.industry ILIKE $1
+        )
+
+        ${countryCondition}
+
+        ORDER BY s.created_at DESC
+
+        LIMIT 20
+        `,
+        values
+      );
+
+      results.startups = result.rows;
+    }
+
+
+    // ==========================================
+    // MENTORS
+    // ==========================================
+
+    if (
+      type === "all" ||
+      type === "mentors"
+    ) {
+      const result = await pool.query(
+        `
+        SELECT
+          u.id,
+          u.first_name,
+          u.last_name,
+          u.country,
+          u.city,
+
+          p.headline,
+          p.bio,
+          p.profile_photo_url
+
+        FROM users u
+
+        LEFT JOIN profiles p
+          ON p.user_id = u.id
+
+        WHERE u.role = 'mentor'
+
+        AND u.is_active = true
+
+        AND (
+          u.first_name ILIKE $1
+          OR u.last_name ILIKE $1
+          OR p.headline ILIKE $1
+          OR p.bio ILIKE $1
+        )
+
+        ORDER BY u.created_at DESC
+
+        LIMIT 20
+        `,
+        [pattern]
+      );
+
+      results.mentors =
+        result.rows;
+    }
+
+
+    // ==========================================
+    // STARTUP OPPORTUNITIES
+    // ==========================================
+
+    if (
+      type === "all" ||
+      type === "opportunities"
+    ) {
+      const result = await pool.query(
+        `
+        SELECT
+          so.id,
+          so.startup_id,
+          so.title,
+          so.description,
+          so.opportunity_type,
+          so.location,
+          so.is_remote,
+          so.skills,
+
+          s.name AS startup_name,
+          s.country
+
+        FROM startup_opportunities so
+
+        JOIN startups s
+          ON s.id = so.startup_id
+
+        WHERE so.is_active = true
+
+        AND (
+          so.title ILIKE $1
+          OR so.description ILIKE $1
+          OR so.skills ILIKE $1
+          OR s.name ILIKE $1
+        )
+
+        ORDER BY so.created_at DESC
+
+        LIMIT 20
+        `,
+        [pattern]
+      );
+
+      results.opportunities =
+        result.rows;
+    }
+
+
+    res.json({
+      success: true,
+      query: search,
+      results,
+    });
+
+  } catch (error) {
+    console.error(
+      "Global search error:",
+      error
+    );
+
+    res.status(500).json({
+      success: false,
+      message:
+        "Global search failed",
+    });
+  }
+};
+
+module.exports = {
+  globalSearch,
+};
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+function Home() {
+  return (
+    <div style={styles.page}>
+      <header style={styles.header}>
+        <Link to="/" style={styles.logo}>FELG</Link>
+<form
+  className="homepage-search"
+  onSubmit={(event) => {
+    event.preventDefault();
+
+    const value =
+      event.currentTarget.elements.search.value;
+
+    if (value.trim()) {
+      window.location.href =
+      `/jobs/search?q=${encodeURIComponent(value)}`;
+    }
+  }}
+>
+  <input
+    name="search"
+    placeholder="Search jobs, programs, startups..."
+  />
+
+  <button type="submit">
+    Search FELG
+  </button>
+</form>
+        <nav style={styles.nav}>
+          <Link to="/jobs" style={styles.link}>Jobs</Link>
+          <Link to="/education" style={styles.link}>Education</Link>
+          <Link to="/startups" style={styles.link}>Startups</Link>
+          <Link to="/login" style={styles.link}>Login</Link>
+          <Link to="/register" style={styles.button}>Get Started</Link>
+        </nav>
+      </header>
+
+      <main style={styles.hero}>
+        <p style={styles.tag}>YOUR FUTURE STARTS HERE</p>
+        <h1>Connect your talent to global opportunities.</h1>
+        <p style={styles.description}>
+          Discover jobs, explore educational opportunities,
+          and turn your startup ideas into reality — all in one place.
+        </p>
+
+        <div style={styles.actions}>
+          <Link to="/jobs" style={styles.button}>Explore Jobs</Link>
+          <Link to="/education" style={styles.secondary}>
+            Find Education
+          </Link>
+        </div>
+      </main>
+
+      <section style={styles.section}>
+        <h2>One platform. Three opportunities.</h2>
+        <div style={styles.cards}>
+          <Link to="/jobs" style={styles.card}>
+            <h3>Find Jobs</h3>
+            <p>Explore career opportunities and connect with employers.</p>
+          </Link>
+
+          <Link to="/education" style={styles.card}>
+            <h3>Education</h3>
+            <p>Discover university programs and learning opportunities.</p>
+          </Link>
+
+          <Link to="/startups" style={styles.card}>
+            <h3>Build Startups</h3>
+            <p>Develop ideas, find collaborators, and grow your venture.</p>
+          </Link>
+        </div>
+      </section>
+
+      <footer style={styles.footer}>
+        © {new Date().getFullYear()} FELG. Build your future.
+      </footer>
+    </div>
+  );
+}
+
+const styles = {
+  page: {
+    minHeight: "100vh",
+    fontFamily: "Arial, sans-serif",
+    color: "#172033",
+    background: "#f7f9fc",
+  },
+  header: {
+    display: "flex",
+    justifyContent: "space-between",
+    alignItems: "center",
+    flexWrap: "wrap",
+    gap: "16px",
+    padding: "20px 6%",
+    background: "#ffffff",
+    borderBottom: "1px solid #e5eaf2",
+  },
+  logo: {
+    fontSize: "28px",
+    fontWeight: "bold",
+    color: "#2457d6",
+    textDecoration: "none",
+  },
+  nav: {
+    display: "flex",
+    alignItems: "center",
+    flexWrap: "wrap",
+    gap: "18px",
+  },
+  link: {
+    color: "#334155",
+    textDecoration: "none",
+  },
+  button: {
+    display: "inline-block",
+    background: "#2457d6",
+    color: "#ffffff",
+    padding: "12px 20px",
+    borderRadius: "8px",
+    textDecoration: "none",
+    fontWeight: "bold",
+  },
+  hero: {
+    padding: "85px 8%",
+    background: "#eaf0ff",
+    textAlign: "center",
+  },
+  tag: {
+    color: "#2457d6",
+    fontWeight: "bold",
+    letterSpacing: "2px",
+  },
+  description: {
+    maxWidth: "650px",
+    margin: "20px auto",
+    lineHeight: 1.8,
+    color: "#526078",
+  },
+  actions: {
+    display: "flex",
+    justifyContent: "center",
+    flexWrap: "wrap",
+    gap: "14px",
+    marginTop: "28px",
+  },
+  secondary: {
+    padding: "12px 20px",
+    border: "1px solid #2457d6",
+    borderRadius: "8px",
+    color: "#2457d6",
+    textDecoration: "none",
+  },
+  section: {
+    padding: "55px 6%",
+    textAlign: "center",
+  },
+  cards: {
+    display: "grid",
+    gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))",
+    gap: "20px",
+    marginTop: "28px",
+  },
+  card: {
+    padding: "25px",
+    background: "#ffffff",
+    border: "1px solid #e5eaf2",
+    borderRadius: "12px",
+    color: "#172033",
+    textDecoration: "none",
+    textAlign: "left",
+  },
+  footer: {
+    padding: "24px",
+    textAlign: "center",
+    color: "#64748b",
+    background: "#ffffff",
+  },
+};
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+node_modules/
+.env
+.env.*
+!.env.example
+dist/
+build/
+npm-debug.log*
+yarn-debug.log*
+pnpm-debug.log*
+.DS_Store
+Thumbs.db
+.vscode/
